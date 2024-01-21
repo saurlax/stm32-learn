@@ -4,10 +4,17 @@ build-idx:
   csolution: stm32-learn.csolution.yml
   cprojects:
     - cproject: Template/Template.cproject.yml
+    - cproject: LightupLED/LightupLED.cproject.yml
   cbuilds:
     - cbuild: Template/Template.Debug+STM32F103C8.cbuild.yml
       project: Template
       configuration: .Debug+STM32F103C8
     - cbuild: Template/Template.Release+STM32F103C8.cbuild.yml
       project: Template
+      configuration: .Release+STM32F103C8
+    - cbuild: LightupLED/LightupLED.Debug+STM32F103C8.cbuild.yml
+      project: LightupLED
+      configuration: .Debug+STM32F103C8
+    - cbuild: LightupLED/LightupLED.Release+STM32F103C8.cbuild.yml
+      project: LightupLED
       configuration: .Release+STM32F103C8
