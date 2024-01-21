@@ -1,0 +1,127 @@
+build:
+  generated-by: csolution version 2.2.1
+  solution: ../stm32-learn.csolution.yml
+  project: MarqueeLED.cproject.yml
+  context: MarqueeLED.Release+STM32F103C8
+  compiler: AC6
+  device: STMicroelectronics::STM32F103C8
+  device-pack: Keil::STM32F1xx_DFP@2.4.1
+  processor:
+    endian: little
+    fpu: off
+    core: Cortex-M3
+  packs:
+    - pack: ARM::CMSIS@5.8.0
+      path: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.8.0
+    - pack: Keil::STM32F1xx_DFP@2.4.1
+      path: ${CMSIS_PACK_ROOT}/Keil/STM32F1xx_DFP/2.4.1
+  optimize: balanced
+  debug: off
+  misc:
+    ASM:
+      - -masm=auto
+    C:
+      - -std=gnu11
+      - -Wno-macro-redefined
+      - -Wno-pragma-pack
+      - -Wno-parentheses-equality
+      - -Wno-license-management
+    CPP:
+      - -Wno-macro-redefined
+      - -Wno-pragma-pack
+      - -Wno-parentheses-equality
+      - -Wno-license-management
+    Link:
+      - --entry=Reset_Handler
+      - --map
+      - --info summarysizes
+      - --summary_stderr
+      - --diag_suppress=L6314W
+  define:
+    - STM32F10X_MD
+    - _RTE_
+  add-path:
+    - RTE/Device/STM32F103C8
+    - RTE/_Release_STM32F103C8
+    - ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.8.0/CMSIS/Core/Include
+    - ${CMSIS_PACK_ROOT}/Keil/STM32F1xx_DFP/2.4.1/Device/Include
+    - ${CMSIS_PACK_ROOT}/Keil/STM32F1xx_DFP/2.4.1/Device/StdPeriph_Driver/inc
+  output-dirs:
+    intdir: ../tmp/MarqueeLED/STM32F103C8/Release
+    outdir: ../out/MarqueeLED/STM32F103C8/Release
+    rtedir: RTE
+  output:
+    - type: elf
+      file: MarqueeLED.axf
+  components:
+    - component: ARM::CMSIS:CORE@5.5.0
+      condition: ARMv6_7_8-M Device
+      from-pack: ARM::CMSIS@5.8.0
+      selected-by: ARM::CMSIS:CORE
+    - component: Keil::Device:Startup@1.0.0
+      condition: STM32F1xx CMSIS
+      from-pack: Keil::STM32F1xx_DFP@2.4.1
+      selected-by: Device:Startup
+      files:
+        - file: RTE/Device/STM32F103C8/startup_stm32f10x_md.s
+          category: source
+          attr: config
+          version: 1.0.1
+        - file: RTE/Device/STM32F103C8/system_stm32f10x.c
+          category: source
+          attr: config
+          version: 1.0.1
+        - file: RTE/Device/STM32F103C8/RTE_Device.h
+          category: header
+          attr: config
+          version: 1.1.2
+    - component: Keil::Device:StdPeriph Drivers:Framework@3.6.0
+      condition: STM32F1xx STDPERIPH
+      from-pack: Keil::STM32F1xx_DFP@2.4.1
+      selected-by: Keil::Device:StdPeriph Drivers:Framework@3.6.0
+      files:
+        - file: ${CMSIS_PACK_ROOT}/Keil/STM32F1xx_DFP/2.4.1/Device/StdPeriph_Driver/src/misc.c
+          category: source
+        - file: RTE/Device/STM32F103C8/stm32f10x_conf.h
+          category: source
+          attr: config
+          version: 3.6.0
+    - component: Keil::Device:StdPeriph Drivers:GPIO@3.6.0
+      condition: STM32F1xx STDPERIPH RCC
+      from-pack: Keil::STM32F1xx_DFP@2.4.1
+      selected-by: Keil::Device:StdPeriph Drivers:GPIO
+      files:
+        - file: ${CMSIS_PACK_ROOT}/Keil/STM32F1xx_DFP/2.4.1/Device/StdPeriph_Driver/src/stm32f10x_gpio.c
+          category: source
+    - component: Keil::Device:StdPeriph Drivers:RCC@3.6.0
+      condition: STM32F1xx STDPERIPH
+      from-pack: Keil::STM32F1xx_DFP@2.4.1
+      selected-by: Keil::Device:StdPeriph Drivers:RCC
+      files:
+        - file: ${CMSIS_PACK_ROOT}/Keil/STM32F1xx_DFP/2.4.1/Device/StdPeriph_Driver/src/stm32f10x_rcc.c
+          category: source
+  linker:
+    script: RTE/Device/STM32F103C8/ac6_linker_script.sct.src
+    regions: RTE/Device/STM32F103C8/regions_STM32F103C8.h
+  groups:
+    - group: Source Files
+      files:
+        - file: ./main.c
+          category: sourceC
+  constructed-files:
+    - file: RTE/_Release_STM32F103C8/RTE_Components.h
+      category: header
+  licenses:
+    - license: <unknown>
+      packs:
+        - pack: ARM::CMSIS@5.8.0
+      components:
+        - component: ARM::CMSIS:CORE@5.5.0
+    - license: <unknown>
+      packs:
+        - pack: Keil::STM32F1xx_DFP@2.4.1
+      components:
+        - component: Keil::Device:Startup@1.0.0
+        - component: Keil::Device:StdPeriph Drivers:Framework@3.6.0
+        - component: Keil::Device:StdPeriph Drivers:GPIO@3.6.0
+        - component: Keil::Device:StdPeriph Drivers:RCC@3.6.0

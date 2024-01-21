@@ -7,6 +7,7 @@ solution:
   projects:
     - project: Template/Template.cproject.yml
     - project: FlashLED/FlashLED.cproject.yml
+    - project: MarqueeLED/MarqueeLED.cproject.yml
 
   # List the packs that define the device and/or board.
   packs:

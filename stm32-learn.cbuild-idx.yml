@@ -5,6 +5,7 @@ build-idx:
   cprojects:
     - cproject: Template/Template.cproject.yml
     - cproject: FlashLED/FlashLED.cproject.yml
+    - cproject: MarqueeLED/MarqueeLED.cproject.yml
   cbuilds:
     - cbuild: Template/Template.Debug+STM32F103C8.cbuild.yml
       project: Template
@@ -17,4 +18,10 @@ build-idx:
       configuration: .Debug+STM32F103C8
     - cbuild: FlashLED/FlashLED.Release+STM32F103C8.cbuild.yml
       project: FlashLED
+      configuration: .Release+STM32F103C8
+    - cbuild: MarqueeLED/MarqueeLED.Debug+STM32F103C8.cbuild.yml
+      project: MarqueeLED
+      configuration: .Debug+STM32F103C8
+    - cbuild: MarqueeLED/MarqueeLED.Release+STM32F103C8.cbuild.yml
+      project: MarqueeLED
       configuration: .Release+STM32F103C8
