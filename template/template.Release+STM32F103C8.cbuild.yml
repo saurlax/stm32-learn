@@ -1,8 +1,8 @@
 build:
   generated-by: csolution version 2.2.1
   solution: ../stm32-learn.csolution.yml
-  project: template.cproject.yml
-  context: template.Release+STM32F103C8
+  project: Template.cproject.yml
+  context: Template.Release+STM32F103C8
   compiler: AC6
   device: STMicroelectronics::STM32F103C8
   device-pack: Keil::STM32F1xx_DFP@2.4.1
@@ -52,7 +52,7 @@ build:
     rtedir: RTE
   output:
     - type: elf
-      file: template.axf
+      file: Template.axf
   components:
     - component: ARM::CMSIS:CORE@5.5.0
       condition: ARMv6_7_8-M Device

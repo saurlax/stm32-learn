@@ -3,11 +3,11 @@ build-idx:
   cdefault: ${CMSIS_COMPILER_ROOT}/cdefault.yml
   csolution: stm32-learn.csolution.yml
   cprojects:
-    - cproject: template/template.cproject.yml
+    - cproject: Template/Template.cproject.yml
   cbuilds:
-    - cbuild: template/template.Debug+STM32F103C8.cbuild.yml
-      project: template
+    - cbuild: Template/Template.Debug+STM32F103C8.cbuild.yml
+      project: Template
       configuration: .Debug+STM32F103C8
-    - cbuild: template/template.Release+STM32F103C8.cbuild.yml
-      project: template
+    - cbuild: Template/Template.Release+STM32F103C8.cbuild.yml
+      project: Template
       configuration: .Release+STM32F103C8

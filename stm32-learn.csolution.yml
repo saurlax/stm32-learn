@@ -5,7 +5,7 @@ solution:
 
   # List related projects.
   projects:
-    - project: template/template.cproject.yml
+    - project: Template/Template.cproject.yml
 
   # List the packs that define the device and/or board.
   packs:
