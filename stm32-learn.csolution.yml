@@ -6,7 +6,7 @@ solution:
   # List related projects.
   projects:
     - project: Template/Template.cproject.yml
-    - project: LightupLED/LightupLED.cproject.yml
+    - project: FlashLED/FlashLED.cproject.yml
 
   # List the packs that define the device and/or board.
   packs:

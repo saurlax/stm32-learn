@@ -1,8 +1,8 @@
 build:
   generated-by: csolution version 2.2.1
   solution: ../stm32-learn.csolution.yml
-  project: LightupLED.cproject.yml
-  context: LightupLED.Release+STM32F103C8
+  project: FlashLED.cproject.yml
+  context: FlashLED.Release+STM32F103C8
   compiler: AC6
   device: STMicroelectronics::STM32F103C8
   device-pack: Keil::STM32F1xx_DFP@2.4.1
@@ -47,12 +47,12 @@ build:
     - ${CMSIS_PACK_ROOT}/Keil/STM32F1xx_DFP/2.4.1/Device/Include
     - ${CMSIS_PACK_ROOT}/Keil/STM32F1xx_DFP/2.4.1/Device/StdPeriph_Driver/inc
   output-dirs:
-    intdir: ../tmp/LightupLED/STM32F103C8/Release
-    outdir: ../out/LightupLED/STM32F103C8/Release
+    intdir: ../tmp/FlashLED/STM32F103C8/Release
+    outdir: ../out/FlashLED/STM32F103C8/Release
     rtedir: RTE
   output:
     - type: elf
-      file: LightupLED.axf
+      file: FlashLED.axf
   components:
     - component: ARM::CMSIS:CORE@5.5.0
       condition: ARMv6_7_8-M Device
